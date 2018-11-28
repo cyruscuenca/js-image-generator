@@ -14,21 +14,23 @@ Uses the jpeg-js library: https://github.com/eugeneware/jpeg-js
 ```bash
 npm install js-image-generator
 ```
+## Arguements
+js-image-generator takes three arguements to generate an image. The first is the image's width. The second is the image's height, and the last is the quality.
 
-## Example Usage
+### Example Usage
 
 ```js
 var fs = require('fs');
 var imgGen = require('js-image-generator');
 
 // Generate one image
-imgGen.generateImage(800, 600, 80, function(err, image) {
+imgGen.generateImage(<width>, <height>, <quality>, function(err, image) {
     fs.writeFileSync('dummy.jpg', image.data);
 });
 
 // Generate multiple images
 for(var i=1;i<=10;i++){
-    imgGen.generateImage(800, 600, 80, function(err, image) {
+    imgGen.generateImage(<width>, <height>, <quality>, function(err, image) {
         console.log("Generating image #" +i);
         fs.writeFileSync('dummy-' + i + '.jpg', image.data);
     });
